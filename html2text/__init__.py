@@ -650,7 +650,7 @@ class HTML2Text(HTMLParser.HTMLParser):
                 if tag in ["td", "th"] and start:
                     self.td_count += 1
 
-        if tag == "pre":
+        if tag == "pre" or ('class' in attrs and attrs['class'] == 'pre') or (tag == 'p' and self.pre == 1):
             if start:
                 self.startpre = 1
                 self.pre = 1
